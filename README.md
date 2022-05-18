@@ -18,28 +18,28 @@ Providing the functionality to access, manage and store device topologies, given
 ## Used Technologies
 - [IntelliJ](https://www.jetbrains.com/idea/) as an IDE.
 - [Maven](https://maven.apache.org/) as a building tool.
-- [Gson](https://sites.google.com/site/gson/gson-user-guide) to parse JSON files.
+- [Jackson](https://github.com/FasterXML/jackson) to parse JSON files.
 - [Junit5](https://junit.org/junit5/) to perform unit tests.
 - [Qodana](https://www.jetbrains.com/qodana/), the built-in code analysis tool for [IntelliJ](https://www.jetbrains.com/idea/).
 
 ## TopologyAPI Documentation
 **TopologyAPI is modeled by three classes as follows:**
 
-- ***TopologyManager Class:*** Provides the user with the main functionality to manipulate the topologies through its methods.
-- ***JsonReadWriteHelper Class:*** Provides `TopologyManager` with helper methods to manipulate JSON files, its visibility modifier is `default` as it's only needed by `ToplogyManager` to handle JSON files.
-- ***DataBase Class:*** Represents the memory source that the `TopologyManager` uses to store the read topologies, its visibilty modifier is `default` to make it visible only for the classes in **TopologyAPI** package, so it's granteed that the user of this package **cannot** access it.
+- ***API Class:*** Provides the user with the main functionality to manipulate the topologies through its methods.
+- ***ReadWriteJson Class:*** Provides `API` with helper methods to manipulate JSON files, its visibility modifier is `default` as it's only needed by `API` to handle JSON files.
+- ***Memory Class:*** Represents the memory source that the `API` uses to store the read topologies, its visibilty modifier is `default` to make it visible only for the classes in **Main** package, so it's granteed that the user of this package **cannot** access it.
 
-**Notes:** If the API supports access to database, `DataBase` may contain the methods used to store, retrieve and manipulate topologies from database.
+**Notes:** If the API supports access to Memory, `Memory` may contain the methods used to store, retrieve and manipulate topologies from Memory.
 
-**The UML Diagram of TopologyManager and JsonReadWriteHelper Class:**
+**The UML Diagram of API and ReadWriteJson Class:**
 
-![picture alt](https://raw.githubusercontent.com/Eslam-Walid/TopologyAPI/master/umls/TopologyManager.png "TopologyManager UML")
+![picture alt](https://github.com/Snossy123/Topology-API/blob/main/UML/UML%20API%20Topology2.jpeg "TopologyManager UML")
 
-**The UML Diagram of DataBase Class:**
+**The UML Diagram of Memory Class:**
 
-![picture alt](https://raw.githubusercontent.com/Eslam-Walid/TopologyAPI/master/umls/DataBase.png "DataBase UML")
+![picture alt](https://github.com/Snossy123/Topology-API/blob/main/UML/memory.jpeg "DataBase UML")
 
-## TopologyManager Documentation:
+## API Documentation:
 **readJSON(String jsonFilePath):**
 - Description: read topology from the given JSON file.
 - Parameters:
@@ -94,11 +94,11 @@ Providing the functionality to access, manage and store device topologies, given
 
 - ***Topology Class:*** It models the topology as an ID and an array of devices, each element in this array is of type `Device`.
 - ***Device Class:*** It models the device as an ID, type, characteristics and net list.
-- ***Limit Class:*** It models the characteristics of each device as a default, minimum, maximum value of (resistance, voltage, etc...).
+- ***Constain Class:*** It models the characteristics of each device as a default, minimum, maximum value of (resistance, voltage, etc...).
 - ***TopologyIDNotFoundException Class:*** Defines a **user-defined-exception** to be thrown if the user tried to manipulate a topology in memory while it's not actually stored yet.  
 
-**The UML Diagram of Topology, Device, and Limit Class:**
-![picture alt](https://raw.githubusercontent.com/Eslam-Walid/TopologyAPI/master/umls/Topology.png "Topology UML")
+**The UML Diagram of Topology, Device, and Constrain Class:**
+![picture alt]( https://github.com/Snossy123/Topology-API/blob/main/UML/UML%20API%20Topology.jpeg "Topology UML")
 
 **Note:** The UML Diagram of these classes shows the **composition** relation between them.
 
@@ -116,4 +116,4 @@ import TopologyAPI.*;
 - You can run the whole `TestTopologyAPI` class or run individual methods.
 - Output of [Junit5](https://junit.org/junit5/) testing process from [IntelliJ](https://www.jetbrains.com/idea/):
 
-![picture alt](https://raw.githubusercontent.com/Eslam-Walid/TopologyAPI/master/testingOutput.png "Testing Output")
+![picture alt]( https://github.com/Snossy123/Topology-API/blob/main/Test_API_Topology.jpg "Testing Output")
