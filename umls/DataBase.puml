@@ -1,9 +1,0 @@
-@startuml DataBase
-
-package TopologyAPI {
-    class DataBase() {
-        + {static} topologies: ArrayList<Topology>
-    }
-}
-
-@enduml
